@@ -1,0 +1,8 @@
+com\bcwellness\servlets\LoginServlet.class
+com\bcwellness\utils\SessionUtils.class
+com\bcwellness\utils\DatabaseConnection.class
+com\bcwellness\servlets\LogoutServlet.class
+com\bcwellness\utils\DevDatabaseConnection.class
+com\bcwellness\utils\PasswordUtils.class
+com\bcwellness\dao\UserDAO.class
+com\bcwellness\models\User.class
