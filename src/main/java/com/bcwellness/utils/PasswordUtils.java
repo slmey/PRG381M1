@@ -5,9 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-/**
- * Utility class for password hashing and validation
- */
+
 public class PasswordUtils {
     
     private static final String HASH_ALGORITHM = "SHA-256";

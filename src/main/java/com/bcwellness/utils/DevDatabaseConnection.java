@@ -5,9 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Development Database Connection utility using H2 in-memory database
- */
+
 public class DevDatabaseConnection {
     
     private static final String DB_URL = "jdbc:h2:mem:bc_wellness_db;DB_CLOSE_DELAY=-1;MODE=PostgreSQL";
@@ -15,9 +13,7 @@ public class DevDatabaseConnection {
     private static final String DB_PASSWORD = "";
     private static boolean initialized = false;
     
-    /**
-     * Get database connection
-     */
+  
     public static Connection getConnection() throws SQLException {
         if (!initialized) {
             initializeDatabase();
@@ -32,9 +28,7 @@ public class DevDatabaseConnection {
         }
     }
     
-    /**
-     * Initialize the database with required tables and sample data
-     */
+  
     private static void initializeDatabase() throws SQLException {
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              Statement stmt = conn.createStatement()) {
@@ -55,8 +49,7 @@ public class DevDatabaseConnection {
             
             stmt.executeUpdate(createUsersTable);
             
-            // Insert sample users with simple passwords for school assignment
-            // Password for all test users is "password123"
+           
             String insertSampleUsers = "INSERT INTO users (student_number, email, first_name, last_name, password_hash, password_salt) VALUES " +
                 "('ST001', 'john.doe@student.bc.edu', 'John', 'Doe', 'password123', ''), " +
                 "('ST002', 'jane.smith@student.bc.edu', 'Jane', 'Smith', 'password123', ''), " +
@@ -76,9 +69,7 @@ public class DevDatabaseConnection {
         }
     }
     
-    /**
-     * Close connection
-     */
+    
     public static void closeConnection(Connection connection) {
         if (connection != null) {
             try {
@@ -89,9 +80,7 @@ public class DevDatabaseConnection {
         }
     }
     
-    /**
-     * Test database connection
-     */
+   
     public static boolean testConnection() {
         try (Connection conn = getConnection()) {
             return conn != null && !conn.isClosed();

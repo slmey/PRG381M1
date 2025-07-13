@@ -3,9 +3,9 @@ package com.bcwellness.utils;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- * Database Connection utility that switches between production and development databases
- */
+
+  //Database Connection utility that switches between production and development databases
+ 
 public class DatabaseConnection {
     
     // Check if we're in development mode (no PostgreSQL available)
