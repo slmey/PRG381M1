@@ -170,12 +170,6 @@ public class LoginServlet extends HttpServlet {
 - Redirect functionality validation
 - Error message accuracy
 
-## Next Steps (Milestone 2)
-- RegisterServlet implementation
-- Desktop application with Java Swing
-- CRUD operations for appointments, counselors, feedback
-- JavaDB integration for desktop app
-
 ## Contributing
 This is a group project for PRG381. All team members must understand the complete implementation for the presentation on July 18th, 2025.
 
