@@ -47,12 +47,12 @@ public class LoginServlet extends HttpServlet {
         SessionManager session = ServiceFactory.getSessionManager();
         
         // Extract and clean form parameters
-        String loginId = security.cleanLoginIdentifier(request.getParameter("loginIdentifier"));
+        String loginId = security.cleanLoginIdentifier(request.getParameter("email"));
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
         
         // Clear any existing messages
-        request.removeAttribute("errorMessage");
+        request.removeAttribute("message");
         request.removeAttribute("successMessage");
         
         // Validate input using ValidationService
@@ -108,9 +108,9 @@ public class LoginServlet extends HttpServlet {
      //Helper method to set error and forward to login page
      
     private void setErrorAndForward(HttpServletRequest request, HttpServletResponse response, 
-            String errorMessage, String loginIdentifier) throws ServletException, IOException {
-        request.setAttribute("errorMessage", errorMessage);
-        request.setAttribute("loginIdentifier", loginIdentifier);
+            String errorMessage, String email) throws ServletException, IOException {
+        request.setAttribute("message", errorMessage);
+        request.setAttribute("email", email);
         request.getRequestDispatcher("/login.jsp").forward(request, response);
     }
     
