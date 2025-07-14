@@ -28,7 +28,7 @@ public class DatabaseConnection {
      */
     public static Connection getConnection() throws SQLException {
         if (DEVELOPMENT_MODE) {
-            System.out.println("🔧 Using H2 development database");
+            System.out.println("Using H2 development database");
             return DevDatabaseConnection.getConnection();
         } else {
             // Production PostgreSQL connection

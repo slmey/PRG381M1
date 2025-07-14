@@ -57,14 +57,14 @@ public class DevDatabaseConnection {
             
             try {
                 stmt.executeUpdate(insertSampleUsers);
-                System.out.println("✅ Development database initialized with sample data");
-                System.out.println("📝 Test users created:");
+                System.out.println("Development database initialized with sample data");
+                System.out.println("Test users created:");
                 System.out.println("   - Student: ST001, Email: john.doe@student.bc.edu, Password: password123");
                 System.out.println("   - Student: ST002, Email: jane.smith@student.bc.edu, Password: password123");
                 System.out.println("   - Student: ST003, Email: mike.wilson@student.bc.edu, Password: password123");
             } catch (SQLException e) {
                 // Data might already exist, that's okay
-                System.out.println("ℹ️  Database already contains sample data");
+                System.out.println("Database already contains sample data");
             }
         }
     }
