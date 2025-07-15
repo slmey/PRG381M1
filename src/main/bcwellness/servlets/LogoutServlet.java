@@ -1,4 +1,4 @@
-package com.bcwellness.servlets;
+package main.bcwellness.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * LogoutServlet handles user logout functionality
  */
-@WebServlet("/logout")
+@WebServlet("/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
     
     private static final long serialVersionUID = 1L;

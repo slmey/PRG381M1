@@ -1,6 +1,6 @@
-package com.bcwellness.services;
+package main.bcwellness.services;
 
-import com.bcwellness.models.User;
+import main.bcwellness.models.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

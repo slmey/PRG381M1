@@ -1,7 +1,7 @@
-package com.bcwellness.services;
+package main.bcwellness.services;
 
-import com.bcwellness.dao.UserDAO;
-import com.bcwellness.models.User;
+import main.bcwellness.dao.UserDAO;
+import main.bcwellness.models.User;
 
 /**
  * Service class to handle user authentication logic

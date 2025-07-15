@@ -1,10 +1,10 @@
-package com.bcwellness.servlets;
+package main.bcwellness.servlets;
 
-import com.bcwellness.services.AuthenticationService;
-import com.bcwellness.services.SecurityService;
-import com.bcwellness.services.ServiceFactory;
-import com.bcwellness.services.SessionManager;
-import com.bcwellness.services.ValidationService;
+import main.bcwellness.services.AuthenticationService;
+import main.bcwellness.services.SecurityService;
+import main.bcwellness.services.ServiceFactory;
+import main.bcwellness.services.SessionManager;
+import main.bcwellness.services.ValidationService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/login")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
     
     private static final long serialVersionUID = 1L;

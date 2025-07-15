@@ -1,6 +1,6 @@
-package com.bcwellness.dao;
+package main.bcwellness.dao;
 
-import com.bcwellness.models.User;
+import main.bcwellness.models.User;
 import com.bcwellness.utils.DatabaseConnection;
 
 import java.sql.Connection;

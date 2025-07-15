@@ -1,4 +1,4 @@
-package com.bcwellness.models;
+package main.bcwellness.models;
 
 /**
  * User model class representing a student in the BC Student Wellness Management System

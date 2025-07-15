@@ -1,4 +1,4 @@
-package com.bcwellness.services;
+package main.bcwellness.services;
 
 /**
  * Service factory to manage service instances
