@@ -32,26 +32,30 @@ This milestone focuses on implementing a secure login and registration system us
 ### Project Structure
 ```
 PRG381M1/
-├── src/main/java/com/bcwellness/
+├── src/main/bcwellness/
 │   ├── servlets/
-│   │   ├── LoginServlet.java      ✅ Complete
-│   │   └── LogoutServlet.java     ✅ Complete
+│   │   ├── LoginServlet.java        ✅ Complete
+│   │   └── LogoutServlet.java       ✅ Complete
+│   │   └── RegisterServlet.java     ✅ Complete
 │   ├── dao/
-│   │   └── UserDAO.java           ✅ Complete
+│   │   └── UserDAO.java             ✅ Complete
 │   ├── models/
-│   │   └── User.java              ✅ Complete
+│   │   └── User.java                ✅ Complete
 │   └── utils/
-│       ├── DatabaseConnection.java ✅ Complete
-│       ├── PasswordUtils.java     ✅ Complete
-│       └── SessionUtils.java      ✅ Complete
+│       ├── DatabaseConnection.java  ✅ Complete
+│       ├── PasswordUtils.java       ✅ Complete
+│       └── SessionUtils.java        ✅ Complete
 ├── src/main/webapp/
 │   ├── WEB-INF/
-│   │   └── web.xml               ✅ Complete
-│   ├── login.jsp                 ✅ Complete
-│   └── dashboard.jsp             ✅ Complete
+│   │   └── web.xml                  ✅ Complete
+│   ├── login.jsp                    ✅ Complete
+│   └── dashboard.jsp                ✅ Complete
+├── src/main/test/
+│   └── TestDB.java 
 ├── database/
-│   └── schema.sql                ✅ Complete
-└── pom.xml                       ✅ Complete
+│   ├── schema.sql                   ✅ Complete
+│   └── setup.sql
+└── pom.xml                          ✅ Complete
 ```
 
 ## Setup Instructions

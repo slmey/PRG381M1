@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d656acb1-6733-4db2-9e80-4ffb3290185a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/bcwellness/servlets/RegisterServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/services/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/services/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/services/SecurityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/services/SecurityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/services/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/services/ServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/services/SessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/services/SessionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/services/ValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/services/ValidationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/servlets/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/servlets/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/servlets/LogoutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/utils/DatabaseConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/utils/DevDatabaseConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/utils/PasswordUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bcwellness/utils/SessionUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/bcwellness/servlets/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bcwellness/servlets/RegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
