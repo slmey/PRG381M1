@@ -1,6 +1,6 @@
-package com.bcwellness.tests;
+package test;
 
-import com.bcwellness.utils.DatabaseConnection;
+import bcwellness.utils.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.SQLException;
 
