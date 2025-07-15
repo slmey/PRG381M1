@@ -1,19 +1,27 @@
-<%@ page contentType="text/html" %>
-<%@ page import="javax.servlet.http.*, javax.servlet.*" %>
-<%
-    // Use the implicit session object instead of declaring a new one
-    if (session == null || session.getAttribute("studentName") == null) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
-    String name = (String) session.getAttribute("studentName");
-%>
+<%-- 
+    Document   : dashboard
+    Created on : 14 Jul 2025, 22:37:14
+    Author     : debee
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<head><title>Dashboard</title></head>
-<body>
-    <h2>Welcome, <%= name %>!</h2>
-    <form action="logout.jsp" method="post">
-        <input type="submit" value="Logout" />
-    </form>
-</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Welcome</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    
+    <body>
+        <section class="dashboard-section">
+            <div class="dashboard-container">
+                <form>
+                    <h2>Welcome Student</h2> <%--Placeholder--%>
+        
+                    <button id="logout-btn" type="submit">Log Out</button>
+                </form>
+            </div>
+        </section>
+    </body>
 </html>
