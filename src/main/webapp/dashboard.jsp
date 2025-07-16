@@ -1,12 +1,13 @@
 <%@ page contentType="text/html" %>
 <%@ page import="javax.servlet.http.*, javax.servlet.*" %>
+<%@ page import="com.bcwellness.utils.SessionUtils" %>
 <%
-    // Use the implicit session object instead of declaring a new one
-    if (session == null || session.getAttribute("studentName") == null) {
+    // Check if user is logged in using SessionUtils
+    if (!SessionUtils.isUserLoggedIn(request)) {
         response.sendRedirect("login.jsp");
         return;
     }
-    String name = (String) session.getAttribute("studentName");
+    String name = SessionUtils.getUserFullName(request);
 %>
 <html>
 <head><title>Dashboard</title></head>

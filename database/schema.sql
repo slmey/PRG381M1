@@ -10,12 +10,12 @@
 -- Create users table for student authentication
 CREATE TABLE IF NOT EXISTS users (
     student_number VARCHAR(20) PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    surname VARCHAR(100) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     phone VARCHAR(20),
-    password VARCHAR(255) NOT NULL,
-    salt VARCHAR(255) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    password_salt VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     is_active BOOLEAN DEFAULT TRUE,
@@ -34,21 +34,21 @@ CREATE INDEX IF NOT EXISTS idx_users_active ON users(is_active);
 -- The plain text passwords are: 'Password123!' for all users
 -- You should generate proper salts and hashes in your application
 
-INSERT INTO users (student_number, name, surname, email, phone, password, salt) VALUES
-('ST001', 'John', 'Doe', 'john.doe@student.bc.ac.za', '0123456789', 
- 'h8K9mN2pQ7rS4tU6vW8xY1zA3bC5dE7fG9hI0jK2lM4nO6pQ8rS0tU2vW4xY6zA8', 
+INSERT INTO users (student_number, first_name, last_name, email, phone, password_hash, password_salt) VALUES
+('ST001', 'John', 'Doe', 'john.doe@student.bc.edu', '0123456789', 
+ 'password123', 
  'aBcDeFgHiJkLmNoPqRsT'),
-('ST002', 'Jane', 'Smith', 'jane.smith@student.bc.ac.za', '0987654321',
- 'h8K9mN2pQ7rS4tU6vW8xY1zA3bC5dE7fG9hI0jK2lM4nO6pQ8rS0tU2vW4xY6zA8',
+('ST002', 'Jane', 'Smith', 'jane.smith@student.bc.edu', '0987654321',
+ 'password123',
  'aBcDeFgHiJkLmNoPqRsT'),
-('ST003', 'Michael', 'Johnson', 'michael.johnson@student.bc.ac.za', '0111222333',
- 'h8K9mN2pQ7rS4tU6vW8xY1zA3bC5dE7fG9hI0jK2lM4nO6pQ8rS0tU2vW4xY6zA8',
+('ST003', 'Michael', 'Johnson', 'mike.wilson@student.bc.edu', '0111222333',
+ 'password123',
  'aBcDeFgHiJkLmNoPqRsT'),
 ('ST004', 'Sarah', 'Williams', 'sarah.williams@student.bc.ac.za', '0444555666',
- 'h8K9mN2pQ7rS4tU6vW8xY1zA3bC5dE7fG9hI0jK2lM4nO6pQ8rS0tU2vW4xY6zA8',
+ 'password123',
  'aBcDeFgHiJkLmNoPqRsT'),
 ('ST005', 'David', 'Brown', 'david.brown@student.bc.ac.za', '0777888999',
- 'h8K9mN2pQ7rS4tU6vW8xY1zA3bC5dE7fG9hI0jK2lM4nO6pQ8rS0tU2vW4xY6zA8',
+ 'password123',
  'aBcDeFgHiJkLmNoPqRsT');
 
 -- Create function to update the updated_at timestamp
@@ -70,8 +70,8 @@ CREATE TRIGGER update_users_updated_at
 CREATE OR REPLACE VIEW user_info AS
 SELECT 
     student_number,
-    name,
-    surname,
+    first_name,
+    last_name,
     email,
     phone,
     created_at,
@@ -87,17 +87,17 @@ WHERE is_active = TRUE;
 -- Queries for common operations:
 
 -- 1. Authenticate user by email or student number
--- SELECT student_number, name, surname, email, phone, password, salt 
+-- SELECT student_number, first_name, last_name, email, phone, password_hash, password_salt 
 -- FROM users 
 -- WHERE (email = ? OR student_number = ?) AND is_active = TRUE;
 
 -- 2. Get user by student number
--- SELECT student_number, name, surname, email, phone 
+-- SELECT student_number, first_name, last_name, email, phone 
 -- FROM users 
 -- WHERE student_number = ? AND is_active = TRUE;
 
 -- 3. Get user by email
--- SELECT student_number, name, surname, email, phone 
+-- SELECT student_number, first_name, last_name, email, phone 
 -- FROM users 
 -- WHERE email = ? AND is_active = TRUE;
 

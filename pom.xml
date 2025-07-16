@@ -126,7 +126,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>8080</port>
+                    <port>8081</port>
                     <path>/bc-wellness</path>
                 </configuration>
             </plugin>
@@ -138,12 +138,22 @@
                 <version>9.4.53.v20231009</version>
                 <configuration>
                     <httpConnector>
-                        <port>8080</port>
+                        <port>8081</port>
                     </httpConnector>
                     <webApp>
                         <contextPath>/bc-wellness</contextPath>
                     </webApp>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+            
+            <!-- Exec Plugin for running tests -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <mainClass>com.bcwellness.utils.DatabaseTest</mainClass>
                 </configuration>
             </plugin>
         </plugins>

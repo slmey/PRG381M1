@@ -15,10 +15,14 @@ public class DatabaseConnection {
         try {
             Class.forName("org.postgresql.Driver");
             // Try to connect to PostgreSQL
-            java.sql.DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/postgres", "postgres", "password");
+            Connection testConn = java.sql.DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/bc_wellness_db", "postgres", "password");
+            testConn.close();
+            System.out.println("🗄️ PostgreSQL detected - using production database");
             return false; // PostgreSQL is available
         } catch (Exception e) {
+            System.out.println("🔧 PostgreSQL not available - using H2 development database");
+            System.out.println("   Error: " + e.getMessage());
             return true; // PostgreSQL not available, use H2
         }
     }

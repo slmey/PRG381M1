@@ -16,14 +16,18 @@ public class DevDatabaseConnection {
   
     public static Connection getConnection() throws SQLException {
         if (!initialized) {
+            System.out.println("🔧 Initializing H2 development database...");
             initializeDatabase();
             initialized = true;
         }
         
         try {
             Class.forName("org.h2.Driver");
-            return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("✅ H2 database connection established");
+            return conn;
         } catch (ClassNotFoundException e) {
+            System.err.println("❌ H2 database driver not found: " + e.getMessage());
             throw new SQLException("H2 database driver not found", e);
         }
     }
@@ -35,16 +39,19 @@ public class DevDatabaseConnection {
             
             // Create users table
             String createUsersTable = "CREATE TABLE IF NOT EXISTS users (" +
-                "id SERIAL PRIMARY KEY," +
-                "student_number VARCHAR(20) UNIQUE NOT NULL," +
-                "email VARCHAR(100) UNIQUE NOT NULL," +
-                "first_name VARCHAR(50) NOT NULL," +
-                "last_name VARCHAR(50) NOT NULL," +
+                "student_number VARCHAR(20) PRIMARY KEY," +
+                "email VARCHAR(255) UNIQUE NOT NULL," +
+                "first_name VARCHAR(100) NOT NULL," +
+                "last_name VARCHAR(100) NOT NULL," +
+                "phone VARCHAR(20)," +
                 "password_hash VARCHAR(255) NOT NULL," +
                 "password_salt VARCHAR(255) NOT NULL," +
-                "is_active BOOLEAN DEFAULT TRUE," +
                 "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP," +
-                "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+                "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP," +
+                "is_active BOOLEAN DEFAULT TRUE," +
+                "last_login TIMESTAMP," +
+                "failed_login_attempts INTEGER DEFAULT 0," +
+                "account_locked_until TIMESTAMP" +
                 ")";
             
             stmt.executeUpdate(createUsersTable);
