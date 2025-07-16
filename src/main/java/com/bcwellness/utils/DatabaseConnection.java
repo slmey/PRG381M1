@@ -3,15 +3,36 @@ package com.bcwellness.utils;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-
-  //Database Connection utility that switches between production and development databases
- 
+/**
+ * Database Connection utility that switches between production and development databases
+ * 
+ * CONFIGURATION:
+ * - Set FORCE_H2_DATABASE = true to always use H2 (development mode)
+ * - Set FORCE_H2_DATABASE = false to use PostgreSQL when available
+ * 
+ * SWITCHING TO POSTGRESQL:
+ * 1. Change FORCE_H2_DATABASE to false
+ * 2. Update PostgreSQL connection details in getConnection() method
+ * 3. Ensure PostgreSQL server is running and accessible
+ * 4. Update database name, username, and password as needed
+ * 
+ * The PostgreSQL code is preserved and ready for production use.
+ */
 public class DatabaseConnection {
     
+    // Force H2 database usage for development (set to true to use H2, false to use PostgreSQL)
+    private static final boolean FORCE_H2_DATABASE = true;
+    
     // Check if we're in development mode (no PostgreSQL available)
-    private static final boolean DEVELOPMENT_MODE = isDevelopmentMode();
+    private static final boolean DEVELOPMENT_MODE = FORCE_H2_DATABASE || isDevelopmentMode();
     
     private static boolean isDevelopmentMode() {
+        // If forced to use H2, skip PostgreSQL check
+        if (FORCE_H2_DATABASE) {
+            System.out.println("🔧 Forced H2 mode - using H2 development database");
+            return true;
+        }
+        
         try {
             Class.forName("org.postgresql.Driver");
             // Try to connect to PostgreSQL
