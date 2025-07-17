@@ -16,7 +16,7 @@
   <body>
     <section class="login-section">
       <div class="login-container">
-        <form action="" method="post">
+        <form action="LoginServlet" method="post">
           <h2>Student Login</h2>
 
           <div class="login-input">

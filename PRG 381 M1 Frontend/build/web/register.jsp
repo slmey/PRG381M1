@@ -17,7 +17,7 @@
   <body>
     <section class="register-section">
       <div class="register-container">
-        <form>
+        <form action="RegisterServlet" method="post">
           <h2>Student Register</h2>
 
           <div class="register-input">

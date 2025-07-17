@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/web/index.jsp</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/servlets/LoginServlet.java</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/servlets/LogoutServlet.java</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/servlets/RegisterServlet.java</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/services/SessionManager.java</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/services/ServiceFactory.java</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/services/SecurityService.java</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/services/AuthenticationService.java</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/dao/UserDAO.java</file>
+            <file>file:/E:/Blegium%20campus/PRG%20381/PRG%20381%20M1%20Frontend/src/java/utils/DatabaseConnection.java</file>
+        </group>
+    </open-files>
+</project-private>
