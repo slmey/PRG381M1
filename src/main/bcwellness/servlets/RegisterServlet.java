@@ -3,15 +3,15 @@ package main.bcwellness.servlets;
 import java.io.*;
 import java.security.MessageDigest;
 import java.sql.*;
-import javax.servlets.*;
-import javax.servlets.annotation.WebServlet;
-import javax.servlets.http.*;
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
     private static final String DB_URL = "jdbc:postgresql://localhost:5432/student_wellness";
     private static final String DB_USER = "postgres";
-    private static final String DB_PASS = "yourpassword";
+    private static final String DB_PASS = "yourpassword"; // ⚠️ In production, don't hardcode this
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,36 +30,39 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        try {
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)) {
             Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
-            PreparedStatement check = conn.prepareStatement("SELECT * FROM users WHERE email=?");
-            check.setString(1, email);
-            ResultSet rs = check.executeQuery();
-
-            if (rs.next()) {
-                request.setAttribute("message", "Email already exists.");
-                request.getRequestDispatcher("register.jsp").forward(request, response);
-                return;
+            // Check if user exists
+            try (PreparedStatement check = conn.prepareStatement("SELECT * FROM users WHERE email = ?")) {
+                check.setString(1, email);
+                try (ResultSet rs = check.executeQuery()) {
+                    if (rs.next()) {
+                        request.setAttribute("message", "Email already exists.");
+                        request.getRequestDispatcher("register.jsp").forward(request, response);
+                        return;
+                    }
+                }
             }
 
+            // Hash password
             String hashed = hashPassword(password);
-            PreparedStatement stmt = conn.prepareStatement(
-                    "INSERT INTO users (student_number, name, surname, email, phone, password) VALUES (?, ?, ?, ?, ?, ?)");
-            stmt.setString(1, studentNumber);
-            stmt.setString(2, name);
-            stmt.setString(3, surname);
-            stmt.setString(4, email);
-            stmt.setString(5, phone);
-            stmt.setString(6, hashed);
 
-            stmt.executeUpdate();
+            // Insert user
+            try (PreparedStatement stmt = conn.prepareStatement(
+                    "INSERT INTO users (student_number, name, surname, email, phone, password) VALUES (?, ?, ?, ?, ?, ?)")) {
+                stmt.setString(1, studentNumber);
+                stmt.setString(2, name);
+                stmt.setString(3, surname);
+                stmt.setString(4, email);
+                stmt.setString(5, phone);
+                stmt.setString(6, hashed);
+                stmt.executeUpdate();
+            }
 
-            request.setAttribute("message", "Registration successful!");
+            request.setAttribute("message", "Registration successful! You may now log in.");
             request.getRequestDispatcher("login.jsp").forward(request, response);
 
-            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("message", "Error: " + e.getMessage());
