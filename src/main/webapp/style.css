@@ -376,3 +376,146 @@ h2 {
   background-color: #000;
   color: rgba(255, 255, 255, 1);
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: none;
+}
+
+.dashboard-section {
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1477332552946-cfb384aeaf1c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 100px; /* Increased to ensure footer space */
+}
+
+.welcome-header {
+  text-align: center;
+  padding: 20px;
+  background: rgba(26, 115, 232, 0.3); /* Soft blue with transparency */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.5); /* Match register page border */
+  border-bottom: none;
+  color: #fff;
+}
+
+.dashboard-container {
+  width: 90%;
+  max-width: 1300px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  padding: 20px 0;
+}
+
+.dashboard-card, .chart-container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.5); /* Match register page */
+  min-height: 250px;
+}
+
+.dashboard-card:hover, .chart-container:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color: #00cc88;
+}
+
+h2, h3 {
+  margin: 15px 0 20px;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+p, ul {
+  margin: 8px 0;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+            
+.highlight {
+  color: #00cc88;
+}
+            
+.logout-footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(26, 115, 232, 0.3); /* Match welcome header */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.5); /* Match register page */
+  border-top: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top */
+}
+            
+#logout-btn {
+  width: 150px;
+  height: 45px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.6s;
+}
+            
+#logout-btn:hover {
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.appointment-panel,
+.feedback-panel,
+.counselor-panel {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .appointment-panel,
+  .feedback-panel,
+  .counselor-panel {
+    padding: 15px;
+    width: 95%;
+  }
+}
