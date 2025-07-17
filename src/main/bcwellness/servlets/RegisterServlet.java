@@ -1,9 +1,11 @@
+package main.bcwellness.servlets;
+
 import java.io.*;
 import java.security.MessageDigest;
 import java.sql.*;
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlets.*;
+import javax.servlets.annotation.WebServlet;
+import javax.servlets.http.*;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -22,7 +24,7 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         if (studentNumber.isEmpty() || name.isEmpty() || surname.isEmpty() ||
-            email.isEmpty() || phone.isEmpty() || password.isEmpty()) {
+                email.isEmpty() || phone.isEmpty() || password.isEmpty()) {
             request.setAttribute("message", "All fields are required.");
             request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
@@ -44,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 
             String hashed = hashPassword(password);
             PreparedStatement stmt = conn.prepareStatement(
-                "INSERT INTO users (student_number, name, surname, email, phone, password) VALUES (?, ?, ?, ?, ?, ?)");
+                    "INSERT INTO users (student_number, name, surname, email, phone, password) VALUES (?, ?, ?, ?, ?, ?)");
             stmt.setString(1, studentNumber);
             stmt.setString(2, name);
             stmt.setString(3, surname);

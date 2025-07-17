@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" %>
 <%@ page import="javax.servlet.http.*, javax.servlet.*" %>
 <%
-    HttpSession session = request.getSession(false);
+    // Use the implicit session object instead of declaring a new one
     if (session == null || session.getAttribute("studentName") == null) {
         response.sendRedirect("login.jsp");
         return;
