@@ -84,7 +84,6 @@ build/
 *.db
 *.sqlite
 *.sqlite3
-database/
 *.h2.db
 
 # OS generated files
